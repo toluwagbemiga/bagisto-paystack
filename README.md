@@ -20,7 +20,7 @@ composer install
 5. in your composer.json add this code to it under 
 autoload psr-4 array
 `"Webkul\\Paystack\\": "packages/Webkul/Paystack/src",`
-6. Register your service provider in the config/app.php file, also located in the Bagisto root directory:
+6. Register your service provider in the config/app.php file, also located in the Bagisto root directory: <br>
 
 <?php
 
@@ -40,9 +40,9 @@ composer dump-autoload
 php artisan config:cache
 
 
-8. Configure your Paystack API keys in the `.env` file:
-PAYSTACK_SECRET_KEY=secretkey
-
+8. Configure your Paystack API keys in the `.env` file: <br>
+PAYSTACK_SECRET_KEY=secretkey <br>
+<br>
 PAYSTACK_PAYMENT_URL=https://api.paystack.co
 
 MERCHANT_EMAIL=
