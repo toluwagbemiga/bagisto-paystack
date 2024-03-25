@@ -22,40 +22,40 @@ autoload psr-4 array
 `"Webkul\\Paystack\\": "packages/Webkul/Paystack/src",`
 6. Register your service provider in the config/app.php file, also located in the Bagisto root directory: <br>
 
-<?php
+<?php <br>
+<br>
+return [<br>
+    // Other configuration options<br>
+<br>
+    'providers' => ServiceProvider::defaultProviders()->merge([<br>
+        // Other service providers<br>
+        Webkul\Paystack\Providers\PaystackServiceProvider::class,<br>
+    ])->toArray(),<br>
+    <br>
+    // Other configuration options<br>
+];<br>
+7. After making these changes, run the following commands:<br>
 
-return [
-    // Other configuration options
-
-    'providers' => ServiceProvider::defaultProviders()->merge([
-        // Other service providers
-        Webkul\Paystack\Providers\PaystackServiceProvider::class,
-    ])->toArray(),
-    
-    // Other configuration options
-];
-7. After making these changes, run the following commands:
-
-composer dump-autoload
-php artisan config:cache
+composer dump-autoload<br>
+php artisan config:cache<br>
 
 
 8. Configure your Paystack API keys in the `.env` file: <br>
 PAYSTACK_SECRET_KEY=secretkey <br>
 <br>
-PAYSTACK_PAYMENT_URL=https://api.paystack.co
+PAYSTACK_PAYMENT_URL=https://api.paystack.co <br>
+<br>
+MERCHANT_EMAIL=<br>
+<br><br>
 
-MERCHANT_EMAIL=
-
-
-11. You're all set! Log in to your Bagisto admin panel and configure the Paystack payment gateway under the Payment Methods section.
-
-## Support
-
-If you encounter any issues or have questions, feel free to reach out to us at redconetech@gmail.com.
-
-## Contributing
-
-We welcome contributions to improve this package. Fork the repository, make your changes, and submit a pull request.
-
-Happy selling with Paystack on Bagisto!
+11. You're all set! Log in to your Bagisto admin panel and configure the Paystack payment gateway under the Payment Methods section.<br>
+<br>
+## Support<br>
+<br>
+If you encounter any issues or have questions, feel free to reach out to us at redconetech@gmail.com.<br>
+<br>
+## Contributing<br>
+<br>
+We welcome contributions to improve this package. Fork the repository, make your changes, and submit a pull request.<br>
+<br>
+Happy selling with Paystack on Bagisto!<br>
