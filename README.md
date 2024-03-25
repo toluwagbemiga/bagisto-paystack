@@ -42,7 +42,9 @@ php artisan config:cache
 
 8. Configure your Paystack API keys in the `.env` file:
 PAYSTACK_SECRET_KEY=secretkey
+
 PAYSTACK_PAYMENT_URL=https://api.paystack.co
+
 MERCHANT_EMAIL=
 
 
