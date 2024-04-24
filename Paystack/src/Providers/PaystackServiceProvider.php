@@ -13,9 +13,10 @@ class PaystackServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        include __DIR__ . '/../Http/routes.php';
+        $this->loadRoutesFrom(__DIR__ . '/../Routes/web.php');
 
         $this->loadViewsFrom(__DIR__ . '/../Resources/views', 'paystack');
+        $this->loadMigrationsFrom(__DIR__ . '/../Database/Migrations');
     }
 
     /**
