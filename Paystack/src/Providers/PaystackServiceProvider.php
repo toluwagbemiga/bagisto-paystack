@@ -33,7 +33,7 @@ class PaystackServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    protected function registerConfig()
+    public function registerConfig()
     {
         $this->mergeConfigFrom(
             dirname(__DIR__) . '/Config/paymentmethods.php', 'payment_methods'
