@@ -1,12 +1,16 @@
+
 <?php
-
-Route::group(['middleware' => ['web']], function () {
-    Route::prefix('paystack')->group(function () {
-
-        Route::get('/redirect', 'Webkul\Paystack\Http\Controllers\PaymentController@redirect')->name('paystack.redirect');
-
-        Route::post('/pay', 'Webkul\Paystack\Http\Controllers\PaymentController@pay')->name('paystack.pay');
-
-        Route::get('/callback', 'Webkul\Paystack\Http\Controllers\PaymentController@callback')->name('paystack.callback');
+ 
+use Illuminate\Support\Facades\Route;
+use Webkul\CyberSource\Http\Controllers\CyberSourceController;
+ 
+Route::group(['middleware' => ['web', 'theme', 'locale', 'currency'], 'prefix' => 'checkout/paystack'], function () {
+    Route::controller(PaymentController::class)->group(function () {
+        Route::get('redirect', 'redirect')->name('cyber_source.redirect');
+ 
+        Route::post('pay', 'pay')->name(paystack.pay);
+ 
+        Route::post('cancel', 'cancelPayment');
+        Route::get('callback', 'callback');
     });
 });
