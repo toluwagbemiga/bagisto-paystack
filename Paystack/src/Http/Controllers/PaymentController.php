@@ -6,6 +6,7 @@ use Webkul\Paystack\Payment\Paystack;
 use Illuminate\Support\Facades\Redirect;
 use Webkul\Checkout\Facades\Cart;
 use Webkul\Sales\Repositories\OrderRepository;
+use Webkul\Sales\Repositories\InvoiceRepository;
 
 class PaymentController extends Controller
 {
@@ -14,12 +15,13 @@ class PaymentController extends Controller
      *
      * @var \Webkul\Sales\Repositories\OrderRepository
      */
-    protected $orderRepository;
-    public $paystack;
+    
+    
 
     public function __construct(
-        OrderRepository $orderRepository,
-        Paystack $paystack
+        protected OrderRepository $orderRepository,
+        public Paystack $paystack
+        protected InvoiceRepository $invoiceRepository
     )
     {
         $this->paystack = $paystack;
