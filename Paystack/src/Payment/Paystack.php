@@ -223,4 +223,10 @@ class Paystack extends Payment
 
         return $token;
     }
+     public function getImage()
+    {
+        $url = $this->getConfigData('image');
+ 
+        return $url ? Storage::url($url) : bagisto_asset('images/cyber-source.png', 'cyber_source');
+    }
 }
