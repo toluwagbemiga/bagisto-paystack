@@ -7,6 +7,8 @@ This package integrates the Paystack payment gateway into Bagisto, allowing for 
 
 ## Installation
 
+## Please give me a star if you love this project and it worked for you
+
 Follow these steps to install and configure the Paystack payment gateway package in Bagisto:
 
 1. Clone the repository to your local machine:
