@@ -22,33 +22,49 @@ autoload psr-4 array
 `"Webkul\\Paystack\\": "packages/Webkul/Paystack/src",`
 6. Register your service provider in the config/app.php file, also located in the Bagisto root directory: <br>
 
-`<?php <br>
-<br>
-return [<br>
-    // Other configuration options<br>
-<br>
-    'providers' => ServiceProvider::defaultProviders()->merge([<br>
-        // Other service providers<br>
-        Webkul\Paystack\Providers\PaystackServiceProvider::class,<br>
-    ])->toArray(),<br>
-    <br>
-    // Other configuration options<br>
-];`<br>
-7. After making these changes, run the following commands:<br>
 
-`composer dump-autoload`<br>
-`php artisan config:cache`<br>
+
+    <?php
+    return [
+        // Other configuration options 
+        'providers' => ServiceProvider::defaultProviders()->merge([
+            // Other service providers
+            Webkul\Paystack\Providers\PaystackServiceProvider::class,
+        ])->toArray(),
+        // Other configuration options
+    ];
+7. In the config/bagisto-vite.php file, add the following line under the ‘viters’ section:
+
+
+
+
+    'paystack' => [
+        'hot_file'                 => 'paystack-vite.hot',
+        'build_directory'          => 'themes/paystack/build',
+        'package_assets_directory' => 'src/Resources/assets',
+    ],
+    
+
+8. Go to `app/Http/Middleware/VerifyCsrfToken.php` file and add the following line under
+`‘$except’` variables.
+
+		protected $except = [
+    		'checkout/cyber-paystack/*',
+		];
+After making these changes, run the following commands:<br>
+
+composer dump-autoload<br>
+php artisan config:cache<br>
 
 
 8. Configure your Paystack API keys in the `.env` file: <br>
-PAYSTACK_SECRET_KEY=secretkey <br>
-<br>
-PAYSTACK_PAYMENT_URL=https://api.paystack.co <br>
-<br>
-MERCHANT_EMAIL=<br>
-<br><br>
+```
+PAYSTACK_SECRET_KEY=secretkey
+PAYSTACK_PAYMENT_URL=https://api.paystack.co 
+MERCHANT_EMAIL=
+```
 
-11. You're all set! Log in to your Bagisto admin panel and configure the Paystack payment gateway under the Payment Methods section.<br>
+11. You\`re all set! Log in to your Bagisto admin panel and configure the Paystack payment gateway under the Payment Methods section.<br>
 <br>
 ## Support<br>
 <br>
