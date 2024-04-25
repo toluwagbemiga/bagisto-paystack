@@ -21,8 +21,8 @@ composer install
 autoload psr-4 array
 `"Webkul\\Paystack\\": "packages/Webkul/Paystack/src",`
 6. Register your service provider in the config/app.php file, also located in the Bagisto root directory: <br>
-`
-<?php <br>
+
+`<?php <br>
 <br>
 return [<br>
     // Other configuration options<br>
@@ -33,8 +33,7 @@ return [<br>
     ])->toArray(),<br>
     <br>
     // Other configuration options<br>
-];<br>
-`
+];`<br>
 7. After making these changes, run the following commands:<br>
 
 `composer dump-autoload`<br>
