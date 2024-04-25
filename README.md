@@ -23,27 +23,26 @@ autoload psr-4 array
 6. Register your service provider in the config/app.php file, also located in the Bagisto root directory: <br>
 
 
-
-    <?php
-    return [
-        // Other configuration options 
-        'providers' => ServiceProvider::defaultProviders()->merge([
-            // Other service providers
-            Webkul\Paystack\Providers\PaystackServiceProvider::class,
-        ])->toArray(),
-        // Other configuration options
-    ];
+		<?php
+			return [
+        		// Other configuration options 
+        		'providers' => ServiceProvider::defaultProviders()->merge([
+            		// Other service providers
+		 	Webkul\Paystack\Providers\PaystackServiceProvider::class,
+		        ])->toArray(),
+		        // Other configuration options
+    	];
 7. In the config/bagisto-vite.php file, add the following line under the ‘viters’ section:
 
 
 
 
-    'paystack' => [
-        'hot_file'                 => 'paystack-vite.hot',
-        'build_directory'          => 'themes/paystack/build',
-        'package_assets_directory' => 'src/Resources/assets',
-    ],
-    
+	    'paystack' => [
+	        'hot_file'                 => 'paystack-vite.hot',
+	        'build_directory'          => 'themes/paystack/build',
+	        'package_assets_directory' => 'src/Resources/assets',
+	    ],
+	    
 
 8. Go to `app/Http/Middleware/VerifyCsrfToken.php` file and add the following line under
 `‘$except’` variables.
@@ -53,8 +52,8 @@ autoload psr-4 array
 		];
 After making these changes, run the following commands:<br>
 
-composer dump-autoload<br>
-php artisan config:cache<br>
+	composer dump-autoload
+	php artisan config:cache
 
 
 8. Configure your Paystack API keys in the `.env` file: <br>
