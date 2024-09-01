@@ -5,6 +5,7 @@ return [
         'key'    => 'sales.payment_methods.paystack',
         'name'   => 'Paystack',
         'sort'   => 4,
+        'info'   => 'payment with paystack',
         'fields' => [
             [
                 'name'          => 'title',
